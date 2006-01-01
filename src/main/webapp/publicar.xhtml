@@ -2,13 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template/template.xhtml">
         <ui:define name="content">   
             <h:form id="SetUp" prependId="false">  
                 <h2 class="page-header text-center text-muted">Iniciar Arquivo</h2>
-                
+                <h:commandButton action="#{autoriaMB.criarEpub()}"></h:commandButton>
+                <p:commandButton value="Download" ajax="false" icon="ui-icon-arrowthick-1-s">
+                    <p:fileDownload value="#{autoriaMB.file}" />
+                </p:commandButton>
             </h:form>
         </ui:define>
 

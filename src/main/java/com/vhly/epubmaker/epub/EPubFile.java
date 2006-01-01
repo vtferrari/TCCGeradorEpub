@@ -481,4 +481,5 @@ public class EPubFile {
             metadata.setIdentifier(uuid);
         }
     }
+ 
 }
