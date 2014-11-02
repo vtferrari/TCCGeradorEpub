@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <h:head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta charset="utf-8"/>
+        <title>Basis Template for Bootstrap 3</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet"/>
+        <!--[if lt IE 9]>
+                <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link href="#{request.contextPath}/resources/css/styles.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <div class="wrapper">
+            <div class="box">
+                <div class="row">
+
+                    <!-- sidebar -->
+                    <div class="column col-sm-3" id="sidebar">
+                        <a class="logo" href="#">B</a>
+                        <ul class="nav">
+                            <li class="active"><a href="#featured">Featured</a>
+                            </li>
+                            <li><a href="#stories">Stories</a>
+                            </li>
+                        </ul>
+                        <ul class="nav hidden-xs" id="sidebar-footer">
+                            <li>
+                                <a href="http://www.bootply.com"><h3>Basis</h3>Made with <i class="glyphicon glyphicon-heart-empty"></i> by Bootply</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /sidebar -->
+
+                    <!-- main -->
+                    <div class="column col-sm-9" id="main">
+                        <div class="padding">
+                            <div class="full col-sm-9">
+                                <!-- content -->
+                                <div class="col-sm-12" id="featured">   
+                                    <div class="page-header text-muted">
+                                        Featured
+                                    </div> 
+                                </div>
+
+
+
+
+                                
+
+                                <div class="row" id="footer">    
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+                                <hr/>
+                                <h3 class="text-center">
+                                    <a href="http://bootply.com/" target="ext">Made by Bootply</a>
+                                </h3>
+                                <hr/>
+                            </div><!-- /col-9 -->
+                        </div><!-- /padding -->
+                    </div>
+                    <!-- /main -->
+                </div>
+            </div>
+        </div>
+        <!-- script references -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
+    </h:body>
+</html>
