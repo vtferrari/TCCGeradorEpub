@@ -9,10 +9,19 @@
         <ui:define name="content">   
             <h:form id="SetUp" prependId="false">  
                 <h2 class="page-header text-center text-muted">Iniciar Arquivo</h2>
-                <h:commandButton action="#{autoriaMB.criarEpub()}"></h:commandButton>
-                <p:commandButton value="Download" ajax="false" icon="ui-icon-arrowthick-1-s">
-                    <p:fileDownload value="#{autoriaMB.file}" />
-                </p:commandButton>
+                <div class="form-group col-xs-12">
+                    <label for="titulo">Titulo</label>
+                    <h:inputText styleClass="form-control" id="titulo" value="#{autoriaMB.tilulo}"/>
+                </div>
+                <div class="form-group  col-xs-6">
+                    <label for="nome">Nome do Autor</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Titulo"/>
+                </div>
+                <div class="form-group  col-xs-6">
+                    <label for="sobrenome">Sobrenome do Autor</label>
+                    <input type="text" class="form-control" id="sobrenome" placeholder="Titulo"/>
+                </div>
+
             </h:form>
         </ui:define>
 

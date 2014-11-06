@@ -1,124 +1,101 @@
 package tcc.vinicius.geradorepub.mb;
 
-import com.sun.java.accessibility.util.Translator;
-import com.vhly.epubmaker.epub.EPubFile;
-import com.vhly.epubmaker.epub.Item;
-import com.vhly.epubmaker.epub.content.Chapter;
-import java.io.InputStream;
-import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import org.primefaces.model.DefaultStreamedContent;
-import org.primefaces.model.StreamedContent;
-
-import java.io.InputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.io.Serializable;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
 import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Book;
-import nl.siegmann.epublib.domain.Metadata;
 import nl.siegmann.epublib.domain.Resource;
-import nl.siegmann.epublib.domain.TOCReference;
-
 import nl.siegmann.epublib.epub.EpubWriter;
 
 @ManagedBean
 @SessionScoped
 public class AutoriaMB implements Serializable {
 
-    EPubFile file = new EPubFile();
-
-    public void criarEpub() {
-
-        file.setTitle("Test");
-        file.setAuthor("vhly[FR]");
-        file.setUUID("998482814");
-        file.setDescript("This is a Test");
-        Chapter ch = new Chapter();
-        ch.setTitle("Chapter001");
-        ch.setEntryName("chapter001.html");
-        ch.setPageContent("<html>"
-                + "<body>"
-                + "<h4 class=\"calibre4\">Encapsulamento</h4><p class=\"calibre3\">Se uma aplicação precisa de um conjunto de objetos, devem haver classes que abstraiam esses conceitos. Porém, esses mesmos objetos podem precisar ser tratados em partes diferentes do software a partir de diferentes níveis de abstração. O Garfield e o Frajola podem ser tratados como gatos em uma parte do sistema, porém outra, que precisar também lidar com os objetos Pica-pau e Mickey Mouse, pode precisar de um conceito mais abstrato, como animal ou personagem.</p><p class=\"calibre3\">A <strong class=\"calibre6\">herança</strong> é uma característica do paradigma orientado a objetos que permite que abstrações possam ser definidas em diversos níveis. Considerando que você tem uma classe, ela pode ser especializada por uma outra que irá definir um conceito mais concreto. Por outro lado, um conjunto de classes pode ser generalizado por uma classe que representa um conceito mais abstrato. Quando uma classe estende outra, ela não só herda a estrutura de dados e o comportamento da superclasse, mas também o contrato que ela mantém com os seus clientes.</p>"
-                + "</body>"
-                + "</html>");
-        Item chapterItem = new Item("chapter001.html", "chapter001.html");
-        ch.setChapterItem(chapterItem);
-        file.addChapter(ch);
-        file.save("C:\\Users\\Reinaldo\\Documents\\NetBeansProjects\\GeradorEpub\\src\\main\\webapp\\resources\\optimus.epub");
-    }
-
-    private StreamedContent download;
+    private Book epub;
 
     public AutoriaMB() {
-        InputStream stream = ((javax.servlet.ServletContext) FacesContext.
-                getCurrentInstance().
-                getExternalContext().
-                getContext()).getResourceAsStream("/resources/optimus.epub");
-        download = new DefaultStreamedContent(stream, "application/epub+zip", "optimus.epub");
-    }
-
-    public StreamedContent getFile() {
-        return download;
-    }
-
-    private static InputStream getResource(String path) {
-        return Translator.class.getResourceAsStream(path);
-    }
-
-    private static Resource getResource(String path, String href) throws IOException {
-        return new Resource(getResource(path), href);
-    }
-
-    public static void main(String[] args) {
+        epub = new Book();
         try {
-            // Create new Book
-            Book book = new Book();
-            Metadata metadata = book.getMetadata();
+            epub.setCoverImage(new Resource(Object.class.getResourceAsStream("/cover.png"), "cover.png"));
+//            epub.addSection("asd",new Resource("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste</h3></body></html>".getBytes(), "cover.xhtml"));
+        } catch (IOException ex) {
+            Logger.getLogger(AutoriaMB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-            // Set the title
-            metadata.addTitle("Epublib test book 1");
+    public void setTilulo(String titulo) {
+        epub.getMetadata().addTitle(titulo);
+    }
 
-            // Add an Author
-            metadata.addAuthor(new Author("Joe", "Tester"));
+    public String getTilulo() {
+        List<String> titles = epub.getMetadata().getTitles();
+        if (!titles.isEmpty()) {
+            return titles.get(0);
 
-            // Set cover image
-            book.setCoverImage(
-                    getResource("/book1/test_cover.png", "cover.png"));
+        }
+        return "";
+    }
 
-            // Add Chapter 1
-            book.addSection("Introduction",
-                    getResource("/book1/chapter1.html", "chapter1.html"));
+    public String getNomeAutor() {
+        List<Author> autor = epub.getMetadata().getAuthors();
+        if (!autor.isEmpty()) {
+            return autor.get(0).getFirstname();
 
-            // Add css file
-            book.getResources().add(
-                    getResource("/book1/book1.css", "book1.css"));
+        }
+        return "";
+    }
 
-            // Add Chapter 2
-            TOCReference chapter2 = book.addSection("Second Chapter",
-                    getResource("/book1/chapter2.html", "chapter2.html"));
+    public void setNomeAutor(String nome) {
+        List<Author> autor = epub.getMetadata().getAuthors();
+        if (!autor.isEmpty()) {
+            autor.add(0, new Author(nome, autor.get(0).getLastname()));
+        } else {
+            autor.add(new Author(nome, null));
+        }
+    }
 
-            // Add image used by Chapter 2
-            book.getResources().add(
-                    getResource("/book1/flowers_320x240.jpg", "flowers.jpg"));
+    public String getSobrenomeAutor() {
+        List<Author> autor = epub.getMetadata().getAuthors();
+        if (!autor.isEmpty()) {
+            return autor.get(0).getLastname();
+        }
+        return "";
+    }
 
-            // Add Chapter2, Section 1
-            book.addSection(chapter2, "Chapter 2, section 1",
-                    getResource("/book1/chapter2_1.html", "chapter2_1.html"));
+    public void setSobrenomeAutor(String sobrenome) {
+        List<Author> autor = epub.getMetadata().getAuthors();
+        if (!autor.isEmpty()) {
+            autor.add(0, new Author(autor.get(0).getFirstname(), sobrenome));
+        } else {
+            autor.add(new Author(null, sobrenome));
+        }
+    }
 
-            // Add Chapter 3
-            book.addSection("Conclusion",
-                    getResource("/book1/chapter3.html", "chapter3.html"));
+        public void setCaptulo(String html) {
+            
+        epub.addSection("captulo"+epub.getContents().size(), new Resource(html.getBytes(),"captulo"+epub.getContents().size()+".xhtml"));
+    }
 
-            // Create EpubWriter
+    public List<Resource> getCaptulos() {
+        return epub.getContents();
+    }
+    
+    public void publicar() {
+        try {
             EpubWriter epubWriter = new EpubWriter();
-
-            // Write the Book as Epub
-            epubWriter.write(book, new FileOutputStream("test1_book1.epub"));
-        } catch (Exception e) {
-            e.printStackTrace();
+            epubWriter.write(epub, new FileOutputStream(getTilulo() + " " + getNomeAutor() + " " + getSobrenomeAutor() + ".epub"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AutoriaMB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AutoriaMB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
