@@ -1,34 +1,14 @@
 package tcc.vinicius.geradorepub.mb;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import nl.siegmann.epublib.domain.Author;
-import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Resource;
-import nl.siegmann.epublib.epub.EpubWriter;
 
 @ManagedBean
 @SessionScoped
-public class AutoriaMB implements Serializable {
-
-    private Book epub;
-
-    public AutoriaMB() {
-        epub = new Book();
-//        try {
-//            epub.setCoverImage(new Resource(Object.class.getResourceAsStream("/cover.png"), "cover.png"));
-//            epub.addSection("asd",new Resource("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste</h3></body></html>".getBytes(), "cover.xhtml"));
-//        } catch (IOException ex) {
-//            Logger.getLogger(AutoriaMB.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }
+public class Autoria extends EBook{
 
     public void setTilulo(String titulo) {
         epub.getMetadata().addTitle(titulo);
@@ -41,7 +21,7 @@ public class AutoriaMB implements Serializable {
         }
         return "";
     }
-    
+
     public void setEditora(String editora) {
         epub.getMetadata().addPublisher(editora);
     }
@@ -88,31 +68,15 @@ public class AutoriaMB implements Serializable {
         }
     }
 
-    public void setCaptulo(String html) {
+    public void addCapitulo(String html) {
         epub.addSection("captulo" + epub.getContents().size(), new Resource(html.getBytes(), "captulo" + epub.getContents().size() + ".xhtml"));
     }
 
-    public List<Resource> getCaptulos() {
+    public List<Resource> getCapitulos() {
         return epub.getContents();
     }
 
-    public void publicar() {
-        try {
-            EpubWriter epubWriter = new EpubWriter();
-            epubWriter.write(epub, new FileOutputStream(getTilulo() + " " + getNomeAutor() + " " + getSobrenomeAutor() + ".epub"));
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AutoriaMB.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(AutoriaMB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public Book getEpub() {
-        return epub;
-    }
-    
-    public String editor(){
+    public String continuar() {
         return "editor";
     }
-
 }

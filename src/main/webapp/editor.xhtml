@@ -12,22 +12,19 @@
                 <h2 class="page-header text-center text-muted">Iniciar Arquivo</h2>
                 <div class="form-group col-xs-12">
                     <label for="titulo">Titulo do Capitulo</label>
-                    <input type="text" class="form-control" jsf:id="titulo" jsf:value="#{autoriaMB.tilulo}"  placeholder="Titulo"/>
-                </div>
-                <div class="form-group  col-xs-6">
-                    <label for="nome">Nome do Autor</label>
-                    <input type="text" class="form-control" jsf:id="nome" jsf:value="#{autoriaMB.nomeAutor}" placeholder="nome"/>
-                </div>
-                <div class="form-group  col-xs-6">
-                    <label for="sobrenome">Sobrenome do Autor</label>
-                    <input type="text" class="form-control" jsf:id="sobrenome" jsf:value="#{autoriaMB.sobrenomeAutor}" placeholder="sobrenome"/>
+                    <input type="text" class="form-control" jsf:id="titulo" jsf:value="#{autoria.tilulo}"  placeholder="Titulo"/>
                 </div>
                 <div class="form-group  col-xs-12">
-                    <label for="editora">Editora</label>
-                    <input type="text" class="form-control" jsf:id="editora" jsf:value="#{autoriaMB.editora}" placeholder="editora"/>
+                    <label for="nome">Conteudo do capitulo</label>
+                    <textarea class="form-control" jsf:id="editora" jsf:value="#{autoria.editora}" placeholder="editora"></textarea>
                 </div>
                 <div class="form-group  col-xs-12">
-                    <button type="submit" class="btn btn-info" jsf:id="proximo" jsf:action="#{autoriaMB.addCapitulo}"/>
+                    <button type="submit" class="btn btn-info" jsf:id="proximo" jsf:action="#{autoria.continuar}" >
+                        <i class="icon-next"></i> Continuar
+                    </button>
+                    <button type="submit" class="btn btn-info pull-right" jsf:id="finalizar" jsf:action="#{autoria.publicar()}" >
+                        <i class="icon-next"></i> Finalizar
+                    </button>
                 </div>
             </form>
         </ui:define>
