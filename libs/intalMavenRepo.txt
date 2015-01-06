@@ -1,2 +1,0 @@
-mvn install:install-file -Dfile=C:\Users\Reinaldo\Documents\NetBeansProjects\GeradorEpub\libs\xmlpull_1_1_3_4c.jar -DgroupId=org.xmlpull.v1 -DartifactId=xmlpull_1_1_3_4c -Dversion=1.1.3.4 -Dpackaging=jar
-mvn install:install-file -Dfile=C:\Users\Reinaldo\Documents\NetBeansProjects\GeradorEpub\libs\BrowserCore.jar -DgroupId=net.dratek.browser -DartifactId=dratek-browser -Dversion=1.0 -Dpackaging=jar

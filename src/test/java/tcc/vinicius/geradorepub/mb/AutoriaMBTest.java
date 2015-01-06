@@ -20,6 +20,18 @@ public class AutoriaMBTest {
         book.setTilulo("titulo");
         assertEquals("titulo", book.getTilulo());
     }
+    @Test
+    public void testGetEditoraSemSet() {
+        AutoriaMB book = new AutoriaMB();
+        assertEquals("", book.getEditora());
+    }
+
+    @Test
+    public void testGetEditora() {
+        AutoriaMB book = new AutoriaMB();
+        book.setEditora("editora");
+        assertEquals("editora", book.getEditora());
+    }
 
     @Test
     public void testGetNomeDoAutorSemSet() {
@@ -71,8 +83,9 @@ public class AutoriaMBTest {
     @Test
     public void testGetCapitulo() {
         AutoriaMB book = new AutoriaMB();
+        
         book.setCaptulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste</h3></body></html>");
-        assertEquals("Vinicius Ferrari", book.getNomeAutor() + " " + book.getSobrenomeAutor());
+        assertEquals(1,book.getCaptulos().size());
     }
 
     @Test
