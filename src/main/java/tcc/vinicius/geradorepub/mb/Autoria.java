@@ -4,17 +4,26 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import nl.siegmann.epublib.domain.Author;
+import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Resource;
 
 @ManagedBean
 @SessionScoped
-public class Autoria extends EBook{
+public class Autoria {
 
-    public void setTilulo(String titulo) {
+    private final Book epub;
+    private String capitulo;
+    private String conteudo;
+
+    public Autoria() {
+        this.epub = new Book();
+    }
+
+    public void setTitulo(String titulo) {
         epub.getMetadata().addTitle(titulo);
     }
 
-    public String getTilulo() {
+    public String getTitulo() {
         List<String> titles = epub.getMetadata().getTitles();
         if (!titles.isEmpty()) {
             return titles.get(0);
@@ -68,10 +77,6 @@ public class Autoria extends EBook{
         }
     }
 
-    public void addCapitulo(String html) {
-        epub.addSection("captulo" + epub.getContents().size(), new Resource(html.getBytes(), "captulo" + epub.getContents().size() + ".xhtml"));
-    }
-
     public List<Resource> getCapitulos() {
         return epub.getContents();
     }
@@ -79,4 +84,50 @@ public class Autoria extends EBook{
     public String continuar() {
         return "editor";
     }
+
+    public void addCapitulo(String html) {
+        epub.addSection(capitulo, new Resource(html.getBytes(), "capitulo" + epub.getContents().size() + ".xhtml"));
+    }
+
+    public void addCapitulo() {
+        addCapitulo(processConteudo());
+    }
+
+    private String processConteudo() {
+
+        String html
+                = "<?xml version='1.0' encoding='utf-8'?>\n"
+                + "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+                + "  <head>\n"
+                + "    <title>" + capitulo + "</title>\n"
+                + "    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n"
+                + "  </head>\n"
+                + "  <body>\n"
+                + "    <div>" + conteudo + "</div>\n"
+                + "  </body>"
+                + "</html>";
+        return html;
+    }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
+    }
+
+    public void publicar() {
+        EBook eBook = new EBook(epub);
+        eBook.publicar(this.getNomeAutor() + " " + this.getSobrenomeAutor() + " " + this.getTitulo());
+    }
+
+    public String getCapitulo() {
+        return capitulo;
+    }
+
+    public void setCapitulo(String capitulo) {
+        this.capitulo = capitulo;
+    }
+
 }
