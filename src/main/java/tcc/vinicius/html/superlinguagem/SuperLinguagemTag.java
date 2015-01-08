@@ -20,7 +20,11 @@ public class SuperLinguagemTag implements SuperLinguagem {
         lista.add(new TagColchetes("u"));
         lista.add(new TagColchetes("i"));
 
-        Recurseitor.percorreLista(lista);
+        try {
+            Recurseitor.percorreLista(lista);
+        } catch (IndexOutOfBoundsException e) {
+
+        }
 
         return Recurseitor.html;
     }

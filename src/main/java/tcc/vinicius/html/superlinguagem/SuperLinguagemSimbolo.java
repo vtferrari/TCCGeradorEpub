@@ -25,8 +25,11 @@ public class SuperLinguagemSimbolo implements SuperLinguagem {
         lista.add(new Simbolo("__", "u"));
         lista.add(new TagLista());
 
-        Recurseitor.percorreLista(lista);
+        try {
+            Recurseitor.percorreLista(lista);
+        } catch (IndexOutOfBoundsException e) {
 
+        }
         return Recurseitor.html;
     }
 
