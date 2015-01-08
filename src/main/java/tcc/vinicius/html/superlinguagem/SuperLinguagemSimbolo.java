@@ -1,6 +1,5 @@
 package tcc.vinicius.html.superlinguagem;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import tcc.vinicius.html.busca.tag.simbolo.BuscaTagSPL;
@@ -11,6 +10,7 @@ import tcc.vinicius.html.busca.tag.simbolo.TagLista;
 import tcc.vinicius.html.superlinguagem.recurseitor.Recurseitor;
 
 public class SuperLinguagemSimbolo implements SuperLinguagem {
+
     private String html;
 
     @Override
@@ -25,12 +25,8 @@ public class SuperLinguagemSimbolo implements SuperLinguagem {
         lista.add(new Simbolo("__", "u"));
         lista.add(new TagLista());
 
-        try {
-            Recurseitor.percorreLista(lista);
-        } catch (IndexOutOfBoundsException e) {
-        }
-        
-        
+        Recurseitor.percorreLista(lista);
+
         return Recurseitor.html;
     }
 
