@@ -11,14 +11,14 @@ public class AutoriaMBTest {
     @Test
     public void testGetTituloSemSet() {
         Autoria book = new Autoria();
-        assertEquals("", book.getTilulo());
+        assertEquals("", book.getTitulo());
     }
 
     @Test
     public void testGetTitulo() {
         Autoria book = new Autoria();
-        book.setTilulo("titulo");
-        assertEquals("titulo", book.getTilulo());
+        book.setTitulo("titulo");
+        assertEquals("titulo", book.getTitulo());
     }
     @Test
     public void testGetEditoraSemSet() {
@@ -73,6 +73,55 @@ public class AutoriaMBTest {
         assertEquals("Vinicius Ferrari", book.getNomeAutor() + " " + book.getSobrenomeAutor());
     }
 
+     @Test
+    public void testGetCapituloSemSet() {
+        Autoria book = new Autoria();
+        List<Resource> capitulo = book.getCapitulos();
+        assertEquals(0, capitulo.size());
+    }
+
+    @Test
+    public void testGetCapitulo() {
+        Autoria book = new Autoria();
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste</h3></body></html>");
+        assertEquals(1,book.getCapitulos().size());
+    }
+    @Test
+    public void testGetCapituloProcessandoHTML() {
+        Autoria book = new Autoria();
+        book.setCapitulo("Capitulo 1");
+        book.setConteudo("Existe conteudo 1");
+        book.addCapitulo();
+        assertEquals(1,book.getCapitulos().size());
+        book.publicar();
+    }
+    
+    @Test
+    public void testPublicar() {
+        Autoria book = new Autoria();
+        book.setTitulo("titulo");
+        book.setNomeAutor("Vinicius");
+        book.setSobrenomeAutor("Ferrari");
+        book.setEditora("VTFerrari");
+
+        book.setCapitulo("capitulo 1");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.setCapitulo("capitulo 2");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.setCapitulo("capitulo 3");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.setCapitulo("capitulo 4");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.setCapitulo("capitulo 5");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.setCapitulo("capitulo 6");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.setCapitulo("capitulo 7");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.setCapitulo("capitulo 8");
+        book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
+        book.publicar();
+    }
 
 
 }

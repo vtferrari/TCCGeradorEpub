@@ -10,14 +10,14 @@ import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Date;
 import nl.siegmann.epublib.epub.EpubWriter;
 
-public abstract class EBook implements Serializable {
+public class EBook {
 
-    protected Book epub;
+    private Book epub;
 
-    public EBook() {
-        epub = new Book();
-        if (epub.getMetadata().getDates().isEmpty()) {
-            epub.getMetadata().addDate(new Date(new java.util.Date()));
+    public EBook(Book epub) {
+        this.epub = epub;
+        if (this.epub.getMetadata().getDates().isEmpty()) {
+            this.epub.getMetadata().addDate(new Date(new java.util.Date()));
         }
     }
 
@@ -28,6 +28,8 @@ public abstract class EBook implements Serializable {
     public void publicar(String nomeArquivo) {
         try {
             EpubWriter epubWriter = new EpubWriter();
+            System.out.println(epubWriter);
+            System.out.println(epub);
             epubWriter.write(epub, new FileOutputStream(nomeArquivo + ".epub"));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Autoria.class.getName()).log(Level.SEVERE, null, ex);
