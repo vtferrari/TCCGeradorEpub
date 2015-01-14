@@ -44,7 +44,7 @@ public class Livro {
     }
 
     public List<Capitulo> getCapitulo() {
-        if(capitulo == null){
+        if (capitulo == null) {
             capitulo = new ArrayList<>();
         }
         return capitulo;
@@ -52,6 +52,11 @@ public class Livro {
 
     public void setCapitulo(List<Capitulo> capitulo) {
         this.capitulo = capitulo;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro{" + "titulo=" + titulo + ", Nome=" + Nome + ", Sobrenome=" + Sobrenome + ", editora=" + editora + ", capitulo=" + capitulo + '}';
     }
 
 }
