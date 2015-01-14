@@ -34,6 +34,9 @@
                     <h5 class="page-header text-center text-muted">Tabela de Conteudo</h5>
                     <p:dataList value="#{autoria.capitulos}" var="capitulos" type="ordered">
                         #{capitulos.titulo}
+                        <pre>
+                            #{autoria.processar(capitulos.conteudo)}
+                        </pre>
                     </p:dataList>
                 </form>
             </div>

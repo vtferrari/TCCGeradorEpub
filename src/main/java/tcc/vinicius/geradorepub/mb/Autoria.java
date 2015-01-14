@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import tcc.vinicius.geradorepub.model.Capitulo;
 import tcc.vinicius.geradorepub.model.Livro;
+import tcc.vinicius.html.superlinguagem.SuperLinguagemSimbolo;
 
 @ManagedBean
 @SessionScoped
@@ -58,12 +59,18 @@ public class Autoria {
         book.setNomeAutor(this.livro.getNome());
         book.setSobrenomeAutor(this.livro.getSobrenome());
         book.setEditora(this.livro.getEditora());
-        
+
         for (Capitulo capituloLivro : this.livro.getCapitulo()) {
             book.addCapitulo(capituloLivro.getConteudo());
             capituloLivro.getTitulo();
         }
         book.publicar();
+    }
+
+    public String processar(String conteudo) {
+        System.out.println(conteudo);
+        System.out.println(new SuperLinguagemSimbolo().paraHTML(conteudo));
+        return new SuperLinguagemSimbolo().paraHTML(conteudo);
     }
 
 }
