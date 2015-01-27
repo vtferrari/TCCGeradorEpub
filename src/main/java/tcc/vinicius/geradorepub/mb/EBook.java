@@ -101,8 +101,7 @@ public class EBook implements Serializable{
 
     private String processConteudo() {
 
-        String html
-                = "<?xml version='1.0' encoding='utf-8'?>\n"
+        return "<?xml version='1.0' encoding='utf-8'?>\n"
                 + "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
                 + "  <head>\n"
                 + "    <title>" + capitulo + "</title>\n"
@@ -112,7 +111,6 @@ public class EBook implements Serializable{
                 + "    <div>" + conteudo + "</div>\n"
                 + "  </body>"
                 + "</html>";
-        return html;
     }
 
     public String getConteudo() {
@@ -139,7 +137,7 @@ public class EBook implements Serializable{
     public void publicar(String nomeArquivo) {
         try {
             EpubWriter epubWriter = new EpubWriter();
-            epubWriter.write(epub, new FileOutputStream("/home/vinicius/Vinicius/Netbeans/TCCGeradorEpub/teste.epub"));
+            epubWriter.write(epub, new FileOutputStream("/home/vinicius/Vinicius/Netbeans/TCCGeradorEpub/"+nomeArquivo+".epub"));
         } catch (IOException ex) {
             Logger.getLogger(Autoria.class.getName()).log(Level.SEVERE, null, ex);
         }

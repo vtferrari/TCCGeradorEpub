@@ -2,7 +2,7 @@ package tcc.vinicius.html.busca.tag.simbolo;
 
 public class TagColchetes implements BuscaTagSPL{
     
-    private String seletor;
+    private final String seletor;
 
     public TagColchetes(String seletor) {
         this.seletor = seletor;

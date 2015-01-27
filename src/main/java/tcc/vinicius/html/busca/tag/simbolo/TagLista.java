@@ -1,6 +1,5 @@
 package tcc.vinicius.html.busca.tag.simbolo;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
