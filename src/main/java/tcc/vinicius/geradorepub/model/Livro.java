@@ -6,8 +6,8 @@ import java.util.List;
 public class Livro {
 
     private String titulo;
-    private String Nome;
-    private String Sobrenome;
+    private String nome;
+    private String sobrenome;
     private String editora;
     private List<Capitulo> capitulo;
 
@@ -20,19 +20,19 @@ public class Livro {
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String Nome) {
-        this.Nome = Nome;
+        this.nome = Nome;
     }
 
     public String getSobrenome() {
-        return Sobrenome;
+        return sobrenome;
     }
 
     public void setSobrenome(String Sobrenome) {
-        this.Sobrenome = Sobrenome;
+        this.sobrenome = Sobrenome;
     }
 
     public String getEditora() {
@@ -56,7 +56,7 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "Livro{" + "titulo=" + titulo + ", Nome=" + Nome + ", Sobrenome=" + Sobrenome + ", editora=" + editora + ", capitulo=" + capitulo + '}';
+        return "Livro{" + "titulo=" + titulo + ", nome=" + nome + ", sobrenome=" + sobrenome + ", editora=" + editora + ", capitulo=" + capitulo + '}';
     }
 
 }

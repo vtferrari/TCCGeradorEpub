@@ -1,6 +1,5 @@
 package tcc.vinicius.geradorepub.mb;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
@@ -124,9 +123,6 @@ public class EBook implements Serializable{
         this.conteudo = conteudo;
     }
 
-    public void publicar() {
-        publicar(this.getNomeAutor() + " " + this.getSobrenomeAutor() + " " + this.getTitulo());
-    }
 
     public String getCapitulo() {
         return capitulo;

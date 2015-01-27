@@ -64,7 +64,7 @@ public class Autoria {
             book.addCapitulo(capituloLivro.getConteudo());
             capituloLivro.getTitulo();
         }
-        book.publicar();
+        book.publicar("teste");
     }
 
     public String processar(String conteudo) {

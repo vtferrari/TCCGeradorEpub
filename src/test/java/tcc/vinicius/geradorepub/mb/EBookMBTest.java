@@ -93,7 +93,7 @@ public class EBookMBTest {
         book.setConteudo("Existe conteudo 1");
         book.addCapitulo();
         assertEquals(1,book.getCapitulos().size());
-        book.publicar();
+        book.publicar("teste");
     }
     
     @Test
@@ -120,7 +120,7 @@ public class EBookMBTest {
         book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
         book.setCapitulo("capitulo 8");
         book.addCapitulo("<html><head><title>titulo : Capitulo 1</title></head><body><h3>Teste" + UUID.randomUUID() + "</h3></body></html>");
-        book.publicar();
+        book.publicar("teste");
     }
 
 
