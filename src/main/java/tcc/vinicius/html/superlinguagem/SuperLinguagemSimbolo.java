@@ -28,7 +28,7 @@ public class SuperLinguagemSimbolo implements SuperLinguagem {
         try {
             Recurseitor.percorreLista(lista);
         } catch (IndexOutOfBoundsException e) {
-
+            System.out.println("erro");
         }
         return Recurseitor.html;
     }

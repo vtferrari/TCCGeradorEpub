@@ -23,16 +23,16 @@ public class Livro {
         return nome;
     }
 
-    public void setNome(String Nome) {
-        this.nome = Nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSobrenome() {
         return sobrenome;
     }
 
-    public void setSobrenome(String Sobrenome) {
-        this.sobrenome = Sobrenome;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public String getEditora() {
