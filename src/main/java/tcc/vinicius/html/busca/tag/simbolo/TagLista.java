@@ -5,20 +5,20 @@ import java.util.List;
 
 public class TagLista implements BuscaTagSPL {
 
-    private String tagLista;
+    private String listTag;
 
     @Override
     public String converteParaHTML(String html) {
-        return (html.replaceFirst(".*(\\* ).*", circundaListaComTagLi(listaDeItens(html))));
+        return html.replaceFirst(".*(\\* ).*", circundaListaComTagLi(listaDeItens(html)));
     }
 
     private String circundaListaComTagLi(List<String> lista) {
-        tagLista = "<ul>";
+        listTag = "<ul>";
         for (String lis : lista) {
-            tagLista += "<li>" + lis.replace("* ", "").trim() + "</li>";
+            listTag += "<li>" + lis.replace("* ", "").trim() + "</li>";
         }
-        tagLista += "</ul>";
-        return tagLista;
+        listTag += "</ul>";
+        return listTag;
     }
 
     private List<String> listaDeItens(String html) {
