@@ -68,8 +68,6 @@ public class Autoria {
     }
 
     public String processar(String conteudo) {
-        System.out.println(conteudo);
-        System.out.println(new SuperLinguagemSimbolo().paraHTML(conteudo));
         return new SuperLinguagemSimbolo().paraHTML(conteudo);
     }
 

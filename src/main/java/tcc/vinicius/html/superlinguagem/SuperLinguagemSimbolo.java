@@ -2,6 +2,7 @@ package tcc.vinicius.html.superlinguagem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import tcc.vinicius.html.busca.tag.simbolo.BuscaTagSPL;
 import tcc.vinicius.html.busca.tag.simbolo.LinkMascara;
 import tcc.vinicius.html.busca.tag.simbolo.LinkSimples;
@@ -11,7 +12,6 @@ import tcc.vinicius.html.superlinguagem.recurseitor.Recurseitor;
 
 public class SuperLinguagemSimbolo implements SuperLinguagem {
 
-    private String html;
 
     @Override
     public String paraHTML(String html) {
@@ -28,7 +28,7 @@ public class SuperLinguagemSimbolo implements SuperLinguagem {
         try {
             Recurseitor.percorreLista(lista);
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("erro");
+            Logger.getLogger(SuperLinguagemTag.class.getName()).warning("erro");
         }
         return Recurseitor.html;
     }
