@@ -14,21 +14,14 @@ public class TagLista implements BuscaTagSPL {
 
     private String circundaListaComTagLi(List<String> lista) {
         tagLista = "<ul>";
-        try {
-            circundarStringComTagLi(lista);
-        } catch (Exception e) {
+        for (String lis : lista) {
+            tagLista += "<li>" + lis.replace("* ", "").trim() + "</li>";
         }
-        tagLista = tagLista + "</ul>";
+        tagLista += "</ul>";
         return tagLista;
     }
 
     private List<String> listaDeItens(String html) {
         return Arrays.asList(html.trim().split("( \\* )"));
-    }
-
-    private String circundarStringComTagLi(List<String> lista) {
-        tagLista = tagLista + "<li>" + lista.get(0).replace("* ", "").trim() + "</li>";
-        lista = lista.subList(1, lista.size());
-        return circundarStringComTagLi(lista);
     }
 }
