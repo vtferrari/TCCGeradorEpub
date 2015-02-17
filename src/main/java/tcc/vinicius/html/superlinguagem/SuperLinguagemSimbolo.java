@@ -2,7 +2,6 @@ package tcc.vinicius.html.superlinguagem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 import tcc.vinicius.html.busca.tag.simbolo.BuscaTagSPL;
 import tcc.vinicius.html.busca.tag.simbolo.LinkMascara;
 import tcc.vinicius.html.busca.tag.simbolo.LinkSimples;
