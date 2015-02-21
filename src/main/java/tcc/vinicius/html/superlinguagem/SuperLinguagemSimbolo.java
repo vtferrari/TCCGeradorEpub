@@ -2,34 +2,34 @@ package tcc.vinicius.html.superlinguagem;
 
 import java.util.ArrayList;
 import java.util.List;
-import tcc.vinicius.html.busca.tag.simbolo.ConversorHTML;
-import tcc.vinicius.html.busca.tag.simbolo.LinkMascara;
-import tcc.vinicius.html.busca.tag.simbolo.LinkSimples;
-import tcc.vinicius.html.busca.tag.simbolo.NormalizarLink;
-import tcc.vinicius.html.busca.tag.simbolo.Simbolo;
-import tcc.vinicius.html.busca.tag.simbolo.TagAtributada;
-import tcc.vinicius.html.busca.tag.simbolo.TagColchetes;
-import tcc.vinicius.html.busca.tag.simbolo.TagLista;
+import tcc.vinicius.html.busca.tag.simbolo.Marck;
+import tcc.vinicius.html.busca.tag.simbolo.LinkMascaraMarck;
+import tcc.vinicius.html.busca.tag.simbolo.LinkSimplesMarck;
+import tcc.vinicius.html.busca.tag.simbolo.NormalizarLinkMarck;
+import tcc.vinicius.html.busca.tag.simbolo.SimboloMarck;
+import tcc.vinicius.html.busca.tag.simbolo.TagAtributoMarck;
+import tcc.vinicius.html.busca.tag.simbolo.ColchetesMarck;
+import tcc.vinicius.html.busca.tag.simbolo.ListaMarck;
 
 public class SuperLinguagemSimbolo {
 
     public String paraHTML(String html) {
-        List<ConversorHTML> lista = new ArrayList<>();
+        List<Marck> lista = new ArrayList<>();
 
-        lista.add(new TagColchetes("i"));
-        lista.add(new TagColchetes("u"));
-        lista.add(new TagColchetes("b"));
-        lista.add(new Simbolo("__", "u"));
-        lista.add(new Simbolo("//", "i"));
-        lista.add(new Simbolo("\\*\\*", "b"));
-        lista.add(new TagLista());
-        lista.add(new LinkSimples());
-        lista.add(new LinkMascara());
-        lista.add(new TagAtributada("image", "img"));
-        lista.add(new NormalizarLink());
+        lista.add(new ColchetesMarck("i"));
+        lista.add(new ColchetesMarck("u"));
+        lista.add(new ColchetesMarck("b"));
+        lista.add(new SimboloMarck("__", "u"));
+        lista.add(new SimboloMarck("//", "i"));
+        lista.add(new SimboloMarck("\\*\\*", "b"));
+        lista.add(new ListaMarck());
+        lista.add(new LinkSimplesMarck());
+        lista.add(new LinkMascaraMarck());
+        lista.add(new TagAtributoMarck("image", "img"));
+        lista.add(new NormalizarLinkMarck());
         
         String processar = html;
-        for (ConversorHTML lista1 : lista) {
+        for (Marck lista1 : lista) {
             processar = lista1.converteParaHTML(processar);
         }
         return processar;

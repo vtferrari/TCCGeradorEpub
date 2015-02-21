@@ -1,10 +1,10 @@
 package tcc.vinicius.html.busca.tag.simbolo;
 
-public class TagColchetes implements ConversorHTML{
+public class ColchetesMarck implements Marck{
     
     private final String seletor;
 
-    public TagColchetes(String seletor) {
+    public ColchetesMarck(String seletor) {
         this.seletor = seletor;
     }
     

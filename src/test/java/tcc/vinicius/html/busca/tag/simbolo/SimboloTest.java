@@ -20,21 +20,21 @@ public class SimboloTest {
 
     @Test
     public void testSeConverte__ParaTagU() {
-        Simbolo transforma = new Simbolo("__", "u");
+        SimboloMarck transforma = new SimboloMarck("__", "u");
         String transformado = transforma.converteParaHTML("__teste__");
         assertEquals("<u>teste</u>", transformado);
     }
 
     @Test
     public void testSeConverteEcomercialEcomercialParaTagEm() {
-        Simbolo transforma = new Simbolo("\\&\\&", "em");
+        SimboloMarck transforma = new SimboloMarck("\\&\\&", "em");
         String transformado = transforma.converteParaHTML("&&teste&&");
         assertEquals("<em>teste</em>", transformado);
     }
 
     @Test(expected = PatternSyntaxException.class)
     public void testSeLancaExcecaoAsteriscoParaTagStrongSeOsimboloNaoForEscapado() {
-        Simbolo transforma = new Simbolo("**", "strong");
+        SimboloMarck transforma = new SimboloMarck("**", "strong");
         String transformado = transforma.converteParaHTML("*teste*");
         assertEquals("<strong>teste</strong>", transformado);
     }

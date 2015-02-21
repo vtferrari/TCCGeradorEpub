@@ -10,7 +10,7 @@ public class TagListaTest {
 
     @Test
     public void testeSeConverterTagFalsaUParaViniciusTagHTMLU() {
-        TagLista transforma = new TagLista();
+        ListaMarck transforma = new ListaMarck();
         assertEquals("<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>", transforma.converteParaHTML("* Item 1 * Item 2 * Item 3"));
     }
 

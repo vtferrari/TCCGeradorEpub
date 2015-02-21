@@ -7,7 +7,7 @@ public class LinkMascaraTest {
 
     @Test
     public void testeSeCriaTagslinkComMascara() {
-        LinkMascara edit = new LinkMascara();
+        LinkMascaraMarck edit = new LinkMascaraMarck();
         String transformado = edit.converteParaHTML("[http://www.google.com](Google)");
         assertEquals("<a href=\"http://www.google.com\">Google</a>", transformado);
     }

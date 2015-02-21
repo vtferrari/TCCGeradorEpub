@@ -8,7 +8,7 @@ public class TagColchetesTest {
     @Test
     public void testeSeConverterTagFalsaUParaViniciusTagHTMLU() {
         String u = "u";
-        TagColchetes transforma = new TagColchetes(u);
+        ColchetesMarck transforma = new ColchetesMarck(u);
         assertEquals("<u>Vinicius</u> <u>Ferrari</u>", transforma.converteParaHTML("[u]Vinicius[/u] [u]Ferrari[/u]"));
     }
 

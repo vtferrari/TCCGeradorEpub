@@ -1,5 +1,5 @@
 package tcc.vinicius.html.busca.tag.simbolo;
 
-public interface ConversorHTML {
+public interface Marck {
     public String converteParaHTML(String html);
 }

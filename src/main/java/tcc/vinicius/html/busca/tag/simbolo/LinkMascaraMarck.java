@@ -1,7 +1,7 @@
 package tcc.vinicius.html.busca.tag.simbolo;
 
 
-public class LinkMascara implements ConversorHTML {
+public class LinkMascaraMarck implements Marck {
 
     @Override
     public String converteParaHTML(String html) {
