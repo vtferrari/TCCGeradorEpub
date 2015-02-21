@@ -4,7 +4,7 @@ import java.util.regex.PatternSyntaxException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class SimboloTest {
+public class SimboloMarckTest {
 
     @Test
     public void testSeConverte__ParaTagU() {

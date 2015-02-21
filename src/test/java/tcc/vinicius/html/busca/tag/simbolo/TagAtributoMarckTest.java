@@ -3,7 +3,7 @@ package tcc.vinicius.html.busca.tag.simbolo;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TagAtributadaTest {
+public class TagAtributoMarckTest {
 
     @Test
     public void testSeCriaUmaImagemComSeusAtribusstosInalterados() {

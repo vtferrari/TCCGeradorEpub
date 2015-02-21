@@ -3,7 +3,7 @@ package tcc.vinicius.html.busca.tag.simbolo;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TagColchetesTest {
+public class ColchetesMarckTest {
 
     @Test
     public void testeSeConverterTagFalsaUParaViniciusTagHTMLU() {

@@ -3,7 +3,7 @@ package tcc.vinicius.html.busca.tag.simbolo;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class LinkMascaraTest {
+public class LinkSimplesMarckTest {
 
     @Test
     public void testeSeCriaTagslinkComMascara() {
