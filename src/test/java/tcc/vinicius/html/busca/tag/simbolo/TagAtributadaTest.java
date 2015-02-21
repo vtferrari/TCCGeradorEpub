@@ -25,5 +25,12 @@ public class TagAtributadaTest {
         String transformado = transforma.converteParaHTML("[link rel=\"profile\" href=\"http://google.com\"]");
         assertEquals("<link rel=\"profile\" href=\"http://google.com\" />", transformado);
     }
+    
+    @Test
+    public void testeAdeveSerA() {
+        Marck transforma = new TagAtributoMarck("link", "link");
+        String transformado = transforma.converteParaHTML("a");
+        assertEquals("a", transformado);
+    }
 
 }

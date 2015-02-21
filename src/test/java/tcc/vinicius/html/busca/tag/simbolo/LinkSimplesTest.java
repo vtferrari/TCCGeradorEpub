@@ -2,9 +2,6 @@ package tcc.vinicius.html.busca.tag.simbolo;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import tcc.vinicius.html.busca.tag.simbolo.Marck;
-import tcc.vinicius.html.busca.tag.simbolo.LinkMascaraMarck;
-import tcc.vinicius.html.busca.tag.simbolo.LinkSimplesMarck;
 
 public class LinkSimplesTest {
 
@@ -29,5 +26,11 @@ public class LinkSimplesTest {
         assertEquals("<a href=\"ftp://www.google.com\">ftp://www.google.com</a>", transformado);
     }
 
+    @Test
+    public void testAdeveSerA() {
+        LinkSimplesMarck transforma = new LinkSimplesMarck();
+        String transformado = transforma.converteParaHTML("a");
+        assertEquals("a", transformado);
+    }
     
 }

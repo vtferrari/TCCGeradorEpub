@@ -27,5 +27,12 @@ public class NormalizarLinkTest {
         NormalizarLinkMarck transforma = new NormalizarLinkMarck();
         assertEquals("<a></a>", transforma.converteParaHTML(normalizar));
     }
+    
+    @Test
+    public void testAdeveSerA() {
+        NormalizarLinkMarck transforma = new NormalizarLinkMarck();
+        String transformado = transforma.converteParaHTML("a");
+        assertEquals("a", transformado);
+    }
 
 }

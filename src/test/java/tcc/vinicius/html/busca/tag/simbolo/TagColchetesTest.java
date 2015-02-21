@@ -11,5 +11,11 @@ public class TagColchetesTest {
         ColchetesMarck transforma = new ColchetesMarck(u);
         assertEquals("<u>Vinicius</u> <u>Ferrari</u>", transforma.converteParaHTML("[u]Vinicius[/u] [u]Ferrari[/u]"));
     }
+    @Test
+    public void testeADeveSerA() {
+        String u = "a";
+        ColchetesMarck transforma = new ColchetesMarck(u);
+        assertEquals("a", transforma.converteParaHTML("a"));
+    }
 
 }

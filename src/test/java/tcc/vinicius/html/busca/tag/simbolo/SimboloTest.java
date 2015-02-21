@@ -1,22 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tcc.vinicius.html.busca.tag.simbolo;
 
 import java.util.regex.PatternSyntaxException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author vinicius
- */
 public class SimboloTest {
-
-    public SimboloTest() {
-    }
 
     @Test
     public void testSeConverte__ParaTagU() {
@@ -39,5 +27,19 @@ public class SimboloTest {
         assertEquals("<strong>teste</strong>", transformado);
     }
 
+    @Test
+    public void testAdeveSerA() {
+        SimboloMarck transforma = new SimboloMarck("@", "@");
+        String transformado = transforma.converteParaHTML("a");
+        assertEquals("a", transformado);
+    }
+
+    @Test(expected = PatternSyntaxException.class)
+    public void testDeveLansarUmaExececaoSeIniciaOuTerminaEmCaracterDeTexto() {
+        SimboloMarck transforma = new SimboloMarck("a", "a");
+        String transformado = transforma.converteParaHTML("asa");
+        assertEquals("asa", transformado);
+
+    }
 
 }

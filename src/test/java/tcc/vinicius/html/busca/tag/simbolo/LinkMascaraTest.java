@@ -12,4 +12,11 @@ public class LinkMascaraTest {
         assertEquals("<a href=\"http://www.google.com\">Google</a>", transformado);
     }
 
+    @Test
+    public void testAdeveSerA() {
+        LinkMascaraMarck transforma = new LinkMascaraMarck();
+        String transformado = transforma.converteParaHTML("a");
+        assertEquals("a", transformado);
+    }
+
 }
