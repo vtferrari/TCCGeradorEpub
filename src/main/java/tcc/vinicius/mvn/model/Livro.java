@@ -1,16 +1,14 @@
 package tcc.vinicius.mvn.model;
 
 import java.io.Serializable;
-import javax.annotation.ManagedBean;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 
 @ManagedBean
 @SessionScoped
 public class Livro implements Serializable{
 
-    
-    
     private String titulo;
     private String nomeAutor;
     private String sobrenomeAutor;
