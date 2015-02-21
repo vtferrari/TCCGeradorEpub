@@ -24,8 +24,8 @@ public class SuperLinguagemSimbolo {
         lista.add(new TagLista());
         lista.add(new LinkSimples());
         lista.add(new LinkMascara());
+        lista.add(new TagAtributada("image", "img"));
         
-        //lista.add(new TagAtributada("image", "img"));
 
         for (BuscaTagSPL lista1 : lista) {
             html = lista1.converteParaHTML(html);
