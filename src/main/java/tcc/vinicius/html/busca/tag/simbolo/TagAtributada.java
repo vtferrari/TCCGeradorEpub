@@ -12,8 +12,6 @@ public class TagAtributada implements BuscaTagSPL {
 
     @Override
     public String converteParaHTML(String html) {
-        return html.replace("[", "<")
-                   .replace("]", " />")
-                   .replace(de, para);
+        return html.replaceAll("\\["+de+"(.*)\\]","<"+ para+"$1 />");
     }
 }

@@ -1,7 +1,7 @@
 package tcc.vinicius.html.superlinguagem;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import tcc.vinicius.html.busca.tag.simbolo.BuscaTagSPL;
 import tcc.vinicius.html.busca.tag.simbolo.LinkMascara;
 import tcc.vinicius.html.busca.tag.simbolo.LinkSimples;
@@ -13,18 +13,19 @@ import tcc.vinicius.html.busca.tag.simbolo.TagLista;
 public class SuperLinguagemSimbolo {
 
     public String paraHTML(String html) {
-        List<BuscaTagSPL> lista = new ArrayList<>();
+        Set<BuscaTagSPL> lista = new HashSet<>();
 
         lista.add(new TagColchetes("i"));
         lista.add(new TagColchetes("u"));
         lista.add(new TagColchetes("b"));
-        lista.add(new TagAtributada("image", "img"));
-        lista.add(new TagLista());
         lista.add(new Simbolo("__", "u"));
         lista.add(new Simbolo("//", "i"));
         lista.add(new Simbolo("\\*\\*", "b"));
+        lista.add(new TagLista());
         lista.add(new LinkSimples());
         lista.add(new LinkMascara());
+        
+        //lista.add(new TagAtributada("image", "img"));
 
         for (BuscaTagSPL lista1 : lista) {
             html = lista1.converteParaHTML(html);
