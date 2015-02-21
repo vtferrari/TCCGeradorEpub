@@ -2,7 +2,7 @@ package tcc.vinicius.html.busca.tag.simbolo;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import tcc.vinicius.html.busca.tag.simbolo.BuscaTagSPL;
+import tcc.vinicius.html.busca.tag.simbolo.ConversorHTML;
 import tcc.vinicius.html.busca.tag.simbolo.LinkMascara;
 import tcc.vinicius.html.busca.tag.simbolo.LinkSimples;
 

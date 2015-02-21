@@ -1,6 +1,6 @@
 package tcc.vinicius.html.busca.tag.simbolo;
 
-public class Simbolo implements BuscaTagSPL {
+public class Simbolo implements ConversorHTML {
 
     private final String de;
     private final String para;

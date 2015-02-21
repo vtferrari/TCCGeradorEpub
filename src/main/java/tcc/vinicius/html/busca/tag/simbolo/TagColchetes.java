@@ -1,6 +1,6 @@
 package tcc.vinicius.html.busca.tag.simbolo;
 
-public class TagColchetes implements BuscaTagSPL{
+public class TagColchetes implements ConversorHTML{
     
     private final String seletor;
 

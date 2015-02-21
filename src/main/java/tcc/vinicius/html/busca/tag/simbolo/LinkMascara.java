@@ -1,7 +1,7 @@
 package tcc.vinicius.html.busca.tag.simbolo;
 
 
-public class LinkMascara implements BuscaTagSPL {
+public class LinkMascara implements ConversorHTML {
 
     @Override
     public String converteParaHTML(String html) {
