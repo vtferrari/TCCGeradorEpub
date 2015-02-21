@@ -23,9 +23,9 @@ public class NormalizarLinkTest {
     }
     @Test
     public void testNaoDeConseguerNormalizarTagDiferenteDeLink() {
-        String normalizar = "<a>";
+        String normalizar = "<a></a>";
         NormalizarLink transforma = new NormalizarLink();
-        assertEquals("<a>", transforma.converteParaHTML(normalizar));
+        assertEquals("<a></a>", transforma.converteParaHTML(normalizar));
     }
 
 }

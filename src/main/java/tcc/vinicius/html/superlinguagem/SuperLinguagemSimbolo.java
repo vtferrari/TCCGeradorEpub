@@ -1,10 +1,11 @@
 package tcc.vinicius.html.superlinguagem;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import tcc.vinicius.html.busca.tag.simbolo.ConversorHTML;
 import tcc.vinicius.html.busca.tag.simbolo.LinkMascara;
 import tcc.vinicius.html.busca.tag.simbolo.LinkSimples;
+import tcc.vinicius.html.busca.tag.simbolo.NormalizarLink;
 import tcc.vinicius.html.busca.tag.simbolo.Simbolo;
 import tcc.vinicius.html.busca.tag.simbolo.TagAtributada;
 import tcc.vinicius.html.busca.tag.simbolo.TagColchetes;
@@ -13,7 +14,7 @@ import tcc.vinicius.html.busca.tag.simbolo.TagLista;
 public class SuperLinguagemSimbolo {
 
     public String paraHTML(String html) {
-        Set<ConversorHTML> lista = new HashSet<>();
+        List<ConversorHTML> lista = new ArrayList<>();
 
         lista.add(new TagColchetes("i"));
         lista.add(new TagColchetes("u"));
@@ -25,6 +26,7 @@ public class SuperLinguagemSimbolo {
         lista.add(new LinkSimples());
         lista.add(new LinkMascara());
         lista.add(new TagAtributada("image", "img"));
+        lista.add(new NormalizarLink());
         
         String processar = html;
         for (ConversorHTML lista1 : lista) {
