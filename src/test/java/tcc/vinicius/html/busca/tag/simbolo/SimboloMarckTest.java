@@ -35,8 +35,15 @@ public class SimboloMarckTest {
     }
 
     @Test(expected = PatternSyntaxException.class)
-    public void testDeveLansarUmaExececaoSeIniciaOuTerminaEmCaracterDeTexto() {
-        SimboloMarck transforma = new SimboloMarck("a", "a");
+    public void testDeveLansarUmaExececaoSeIniciaEmCaracterDeTexto() {
+        SimboloMarck transforma = new SimboloMarck("a*", "a");
+        String transformado = transforma.converteParaHTML("asa");
+        assertEquals("asa", transformado);
+
+    }
+    @Test(expected = PatternSyntaxException.class)
+    public void testDeveLansarUmaExececaoSeTerminaEmCaracterDeTexto() {
+        SimboloMarck transforma = new SimboloMarck("*a", "a");
         String transformado = transforma.converteParaHTML("asa");
         assertEquals("asa", transformado);
 
