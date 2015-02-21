@@ -11,7 +11,7 @@ import tcc.vinicius.html.busca.tag.simbolo.TagAtributoMarck;
 import tcc.vinicius.html.busca.tag.simbolo.ColchetesMarck;
 import tcc.vinicius.html.busca.tag.simbolo.ListaMarck;
 
-public class SuperLinguagemSimbolo {
+public class MarckupChain {
 
     public String paraHTML(String html) {
         List<Marck> lista = new ArrayList<>();

@@ -3,15 +3,15 @@ package tcc.vinicius.html.editorhtml;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import tcc.vinicius.html.superlinguagem.SuperLinguagemSimbolo;
+import tcc.vinicius.html.superlinguagem.MarckupChain;
 
-public class SPLTagTest {
+public class MarckupChainTest {
 
-    SuperLinguagemSimbolo edit;
+    MarckupChain edit;
 
     @Before
     public void setUp() {
-        edit = new SuperLinguagemSimbolo();
+        edit = new MarckupChain();
 
     }
 
