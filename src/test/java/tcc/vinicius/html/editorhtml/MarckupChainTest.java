@@ -17,63 +17,57 @@ public class MarckupChainTest {
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterEmTagUViniciusU() {
-        assertEquals("<u>Vinicius</u>", edit.paraHTML("[u]Vinicius[/u]"));
-        assertEquals("<u>Ferrari</u>", edit.paraHTML("[u]Ferrari[/u]"));
-        assertEquals("<u>Vinicius</u> <u>Ferrari</u>", edit.paraHTML("[u]Vinicius[/u] [u]Ferrari[/u]"));
+        assertEquals("<p><u>Vinicius</u></p>", edit.paraHTML("[u]Vinicius[/u]"));
     }
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterEmTagBFerrariB() {
-        assertEquals("<b>Vinicius</b>", edit.paraHTML("[b]Vinicius[/b]"));
-        assertEquals("<b>Ferrari</b>", edit.paraHTML("[b]Ferrari[/b]"));
-        assertEquals("<b>Vinicius</b> <b>Ferrari</b>", edit.paraHTML("[b]Vinicius[/b] [b]Ferrari[/b]"));
+        assertEquals("<p><b>Vinicius</b></p>", edit.paraHTML("[b]Vinicius[/b]"));
     }
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterEmTagIViniciusI() {
-        assertEquals("<i>Vinicius</i>", edit.paraHTML("[i]Vinicius[/i]"));
-        assertEquals("<i>Ferrari</i>", edit.paraHTML("[i]Ferrari[/i]"));
-        assertEquals("<i>Vinicius</i> <i>Ferrari</i>", edit.paraHTML("[i]Vinicius[/i] [i]Ferrari[/i]"));
+        assertEquals("<p><i>Vinicius</i></p>", edit.paraHTML("[i]Vinicius[/i]"));
     }
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterEmTag__Viniciu_____Ferrari__() {
-        assertEquals("<u>Vinicius</u> <u>Ferrari</u>", edit.paraHTML("__Vinicius__ __Ferrari__"));
+        assertEquals("<p><u>Vinicius</u> <u>Ferrari</u></p>", edit.paraHTML("__Vinicius__ __Ferrari__"));
     }
 
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterEmTagBarraBarraViniciuBarraBarraFerrariBarraBarra() {
-        assertEquals("<i>Vinicius</i> <i>Ferrari</i>", edit.paraHTML("//Vinicius// //Ferrari//"));
+        assertEquals("<p><i>Vinicius</i> <i>Ferrari</i></p>", edit.paraHTML("//Vinicius// //Ferrari//"));
     }
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterEmTagAsteriscoAsteriscoFerrariAsteriscoAsterisco() {
-        assertEquals("<b>Ferrari</b>", edit.paraHTML("**Ferrari**"));
+        assertEquals("<p><b>Ferrari</b></p>", edit.paraHTML("**Ferrari**"));
     }
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterLinkEmTag() {
         String transformado = edit.paraHTML("http://www.google.com");
-        assertEquals("<a href=\"http://www.google.com\">http://www.google.com</a>", transformado);
+        assertEquals("<p><a href=\"http://www.google.com\">http://www.google.com</a></p>", transformado);
     }
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterLista() {
         String transformado = edit.paraHTML("* item 1 * item 2 * item 3");
-        assertEquals("<ul><li>item 1</li><li>item 2</li><li>item 3</li></ul>", transformado);
+        assertEquals("<p><ul><li>item 1</li><li>item 2</li><li>item 3</li></ul></p>", transformado);
     }
     
         @Test
     public void testeSeOEditorAchaPadraoParaComverterEmTagUumBexemploIqualquerIBU() {
         String transformado = edit.paraHTML("[u]um [b]exemplo [i]qualquer[/i][/b][/u]");
-        assertEquals("<u>um <b>exemplo <i>qualquer</i></b></u>", transformado);
+        assertEquals("<p><u>um <b>exemplo <i>qualquer</i></b></u></p>", transformado);
     }
 
     @Test
     public void testeSeOEditorAchaPadraoParaComverterTagImagem() {
         String transformado = edit.paraHTML("[image src=\"caminho qualquer\"]");
-        assertEquals("<img src=\"caminho qualquer\" />", transformado);
+        assertEquals("<p><img src=\"caminho qualquer\" /></p>", transformado);
     }
 
 }

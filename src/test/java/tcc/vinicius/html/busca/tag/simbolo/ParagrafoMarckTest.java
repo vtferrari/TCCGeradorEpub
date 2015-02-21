@@ -14,7 +14,7 @@ public class ParagrafoMarckTest {
     public void testAdeveSerA() {
         ParagrafoMarck transforma = new ParagrafoMarck();
         String transformado = transforma.converteParaHTML("a");
-        assertEquals("<p>a", transformado);
+        assertEquals("<p>a</p>", transformado);
     }
 
     @Test

@@ -10,6 +10,7 @@ import tcc.vinicius.html.busca.tag.simbolo.SimboloMarck;
 import tcc.vinicius.html.busca.tag.simbolo.TagAtributoMarck;
 import tcc.vinicius.html.busca.tag.simbolo.ColchetesMarck;
 import tcc.vinicius.html.busca.tag.simbolo.ListaMarck;
+import tcc.vinicius.html.busca.tag.simbolo.ParagrafoMarck;
 
 public class MarckupChain {
 
@@ -27,6 +28,7 @@ public class MarckupChain {
         lista.add(new LinkMascaraMarck());
         lista.add(new TagAtributoMarck("image", "img"));
         lista.add(new NormalizarLinkMarck());
+        lista.add(new ParagrafoMarck());
         
         String processar = html;
         for (Marck lista1 : lista) {
