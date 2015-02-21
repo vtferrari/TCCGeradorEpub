@@ -6,7 +6,7 @@ public class ParagrafoMarck implements Marck {
 
     @Override
     public String converteParaHTML(String html) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return html.replaceAll("^", "<p>").replaceAll("\n", "</p><p>").replaceFirst("<p>$", "");
     }
 
 }
