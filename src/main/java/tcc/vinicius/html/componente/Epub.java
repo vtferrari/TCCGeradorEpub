@@ -62,8 +62,7 @@ public class Epub {
 
     public void criarConteudo(String titulo, String conteudo) throws IOException {
         Resource resource = new Resource("id" + conteudo.hashCode(),
-                conteudo.getBytes(), titulo + ".html", MediatypeService.XHTML);
-        resource.close();
+                conteudo.getBytes(),"teste/"+ titulo + ".html", MediatypeService.XHTML);
         book.getTableOfContents().addSection(resource, titulo);
     }
 
