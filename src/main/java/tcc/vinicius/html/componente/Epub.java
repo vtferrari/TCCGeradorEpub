@@ -1,6 +1,5 @@
 package tcc.vinicius.html.componente;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
