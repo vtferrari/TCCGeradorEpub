@@ -3,7 +3,6 @@ package tcc.vinicius.html.componente;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import nl.siegmann.epublib.domain.Author;
@@ -32,7 +31,7 @@ public class Epub {
         this.tabelaDeConteudo = new ArrayList<>();
     }
 
-    public void processarConteudo() throws FileNotFoundException, IOException {
+    public void processarConteudo() throws IOException {
         for (Capitulo toc : tabelaDeConteudo) {
             String conteudoHTML = PRE_HTML.replace("#{Titulo}", toc.getTitulo()) + toc.getConteudo() + POS_HTML;
             this.criarConteudo(toc.getTitulo(), conteudoHTML);
