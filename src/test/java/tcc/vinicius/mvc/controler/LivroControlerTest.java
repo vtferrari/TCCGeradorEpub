@@ -82,7 +82,7 @@ public class LivroControlerTest {
         assertEquals("<p>conteudo!!!</p>", livroControler.tabelaDeConteudo().get(0).getConteudo());
         assertEquals("Teste", livroControler.tabelaDeConteudo().get(1).getTitulo());
         assertEquals("<p><b>conteudo2!!!</b></p>", livroControler.tabelaDeConteudo().get(1).getConteudo());
-        assertTrue(new File("c:\\temp\\arquivo.epub").exists());
+        assertTrue(new File("c:\\temp\\nao_tem_o_arquivo.epub").exists());
     }
 
 }

@@ -12,13 +12,13 @@ public class ExemplosTest {
     @Test
     public void transformaAsteriscoEmTagB() {
         TransformaTag transforma = new TransformaTag();
-        assertEquals("<b>vinicius</b>", transforma.paraHTML("**vinicius**"));
+        assertEquals("<b>vinicius</b>", transforma.paraHTML("**vinicius**","\\*\\*","b"));
     }
 
     @Test
     public void transformaUnderlineEmTagU() {
         TransformaTag transforma = new TransformaTag();
-        assertEquals("<u>vinicius</u>", transforma.paraHTML("__vinicius__"));
+        assertEquals("<u>vinicius</u>", transforma.paraHTML("__vinicius__", "__", "u"));
     }
 
 }
