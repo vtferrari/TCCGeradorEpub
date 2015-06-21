@@ -3,8 +3,6 @@ package tcc.vinicius.html.superlinguagem;
 import java.util.ArrayList;
 import java.util.List;
 import tcc.vinicius.html.busca.tag.simbolo.Marck;
-import tcc.vinicius.html.busca.tag.simbolo.LinkMascaraMarck;
-import tcc.vinicius.html.busca.tag.simbolo.LinkSimplesMarck;
 import tcc.vinicius.html.busca.tag.simbolo.NormalizarLinkMarck;
 import tcc.vinicius.html.busca.tag.simbolo.SimboloMarck;
 import tcc.vinicius.html.busca.tag.simbolo.TagAtributoMarck;
