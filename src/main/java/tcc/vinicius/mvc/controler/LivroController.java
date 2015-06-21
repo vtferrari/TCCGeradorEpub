@@ -15,7 +15,7 @@ import tcc.vinicius.mvn.model.Livro;
 @SessionScoped
 public class LivroController implements Serializable {
 
-    private transient final List<Capitulo> conteudo;
+    private final List<Capitulo> conteudo;
     private Capitulo capitulo;
     private Livro livro;
 
