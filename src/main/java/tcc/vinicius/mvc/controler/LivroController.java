@@ -45,7 +45,7 @@ public class LivroController implements Serializable {
         return conteudo;
     }
 
-    public String finalizarLivro() {
+    public String finalizarLivro() throws IOException {
         MarckupChain marckupChain = new MarckupChain();
         for (Capitulo texto : conteudo) {
             String paraHTML = marckupChain.paraHTML(texto.getConteudo());
@@ -56,14 +56,10 @@ public class LivroController implements Serializable {
         epub.addEditora(livro.getEditora());
         epub.addTitulo(livro.getTitulo());
         epub.addCapitulos(conteudo);
-        try {
-            epub.processarConteudo();
-        } catch (IOException ex) {
-            System.out.println("Erro");
-        }
+        epub.processarConteudo();
         return "finalizado";
     }
-    
+
     public Livro getLivro() {
         return livro;
     }

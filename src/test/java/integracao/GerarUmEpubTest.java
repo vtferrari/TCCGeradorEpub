@@ -1,6 +1,7 @@
 package integracao;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -26,7 +27,7 @@ public class GerarUmEpubTest {
 
     
     @Test
-    public void gerarEpub() {
+    public void gerarEpub() throws Exception {
         LivroController livroController = new LivroController();
         livroController.getLivro().setEditora("Fatec");
         livroController.getLivro().setTitulo("Test-Driven Development como alterantiva de garantia de qualidade no desenvolvimento de software");

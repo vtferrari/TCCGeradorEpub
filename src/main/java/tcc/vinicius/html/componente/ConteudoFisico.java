@@ -21,9 +21,8 @@ public class ConteudoFisico {
         return new File(local).exists();
     }
 
-    public File salvarArquivo(String conteudo) {
+    public File salvarArquivo(String conteudo) throws IOException {
         File file = new File(local + nomeArquivo + ".html");
-        try {
             file.createNewFile();
 
             try (FileWriter arq = new FileWriter(file)) {
@@ -34,9 +33,6 @@ public class ConteudoFisico {
                 gravarArq.close();
             }
 
-        } catch (IOException ex) {
-            Logger.getLogger(ConteudoFisico.class.getName()).log(Level.SEVERE, null, ex);
-        }
         return file;
     }
 

@@ -31,14 +31,14 @@ public class ConteudoFisicoTest {
     }
 
     @Test
-    public void testeDeveCriarArquivoParaGravarNaPastaDoLivro() {
+    public void testeDeveCriarArquivoParaGravarNaPastaDoLivro() throws Exception {
         ConteudoFisico conteudoFisico = new ConteudoFisico("nomeArquivo", "/home/vinicius/Vinicius/Netbeans/TCCGeradorEpub/");
         assertTrue(conteudoFisico.isLocalExiste());
         assertTrue(conteudoFisico.salvarArquivo("").exists());
     }
 
     @Test
-    public void testeDeveCriarArquivoComConteudoParaGravarNaPastaDoLivro() {
+    public void testeDeveCriarArquivoComConteudoParaGravarNaPastaDoLivro() throws Exception {
         ConteudoFisico conteudoFisico = new ConteudoFisico("nomeArquivo", "/home/vinicius/Vinicius/Netbeans/TCCGeradorEpub/");
         assertTrue(conteudoFisico.isLocalExiste());
         File salvarArquivo = conteudoFisico.salvarArquivo("conteudo");

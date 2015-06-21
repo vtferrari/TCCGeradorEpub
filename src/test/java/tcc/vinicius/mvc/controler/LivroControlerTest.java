@@ -1,6 +1,7 @@
 package tcc.vinicius.mvc.controler;
 
 import java.io.File;
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import tcc.vinicius.mvn.model.Capitulo;
@@ -51,7 +52,7 @@ public class LivroControlerTest {
     }
 
     @Test
-    public void testControledDeveProcessarOconteudoDeVariosCapitulosETransformaConteudoEmUmHTML() {
+    public void testControledDeveProcessarOconteudoDeVariosCapitulosETransformaConteudoEmUmHTML() throws Exception {
         LivroController livroControler = new LivroController();
         Capitulo capitulo1 = new Capitulo();
         capitulo1.setTitulo("Teste");
@@ -61,6 +62,8 @@ public class LivroControlerTest {
         capitulo2.setConteudo("**conteudo2!!!**");
         livroControler.addCapitulo(capitulo1);
         livroControler.addCapitulo(capitulo2);
+        livroControler.setCapitulo(capitulo2);
+        assertEquals(capitulo2, livroControler.getCapitulo());
         assertEquals("finalizado",livroControler.finalizarLivro());
         assertEquals(2, livroControler.tabelaDeConteudo().size());
         assertEquals("Teste", livroControler.tabelaDeConteudo().get(0).getTitulo());
@@ -70,7 +73,7 @@ public class LivroControlerTest {
     }
     
 //    @Test
-    public void testControledDeveProcessarOconteudoSalvaEPUB_EmC_Temp() {
+    public void testControledDeveProcessarOconteudoSalvaEPUB_EmC_Temp() throws Exception {
         LivroController livroControler = new LivroController();
         Capitulo capitulo1 = new Capitulo();
         capitulo1.setTitulo("Teste");
