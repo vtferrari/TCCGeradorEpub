@@ -13,7 +13,8 @@ public class LivroControlerTest {
         LivroController livroControler = new LivroController();
         Livro livro = new Livro();
         livro.setTitulo("TDD");
-        String link = livroControler.continuar(livro);
+        livroControler.setLivro(livro);
+        String link = livroControler.continuar();
         assertEquals("editor.xhtml", link);
     }
 
@@ -21,7 +22,8 @@ public class LivroControlerTest {
     public void testControledContinuarVerificaVazioDeveFicarNaMesmaTela() {
         LivroController livroControler = new LivroController();
         Livro livro = null;
-        String link = livroControler.continuar(livro);
+        livroControler.setLivro(livro);
+        String link = livroControler.continuar();
         assertNull(link);
     }
 
@@ -29,6 +31,7 @@ public class LivroControlerTest {
     public void testControledNaoDeveAdicionarUmCapituloVazio() {
         LivroController livroControler = new LivroController();
         Capitulo capitulo = null;
+        livroControler.setCapitulo(capitulo);
         String link = livroControler.addCapitulo(capitulo);
         assertNull(link);
     }
@@ -39,6 +42,7 @@ public class LivroControlerTest {
         Capitulo capitulo = new Capitulo();
         capitulo.setTitulo("Teste");
         capitulo.setConteudo("conteudo!!!");
+        livroControler.setCapitulo(capitulo);
         String link = livroControler.addCapitulo(capitulo);
         assertNotNull(link);
         assertEquals(1, livroControler.tabelaDeConteudo().size());

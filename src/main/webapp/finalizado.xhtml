@@ -8,8 +8,10 @@
 
     <ui:composition template="/template/template.xhtml">
         <ui:define name="content">   
-            <form jsf:id="set-up" jsf:prependId="false">  
+            <form jsf:id="set-up" jsf:prependId="false"> 
                 <h1>Finalizado</h1>
+                <strong>Caminho:</strong>
+                <p>/home/vinicius/Vinicius/Netbeans/TCCGeradorEpub/src/main/webapp/resources/downloads/#{livroController.livro.titulo}_#{livroController.livro.nomeAutor}.epub</p>
             </form>
         </ui:define>
 

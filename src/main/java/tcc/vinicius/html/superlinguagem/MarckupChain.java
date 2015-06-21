@@ -23,9 +23,10 @@ public class MarckupChain {
         lista.add(new SimboloMarck("__", "u"));
         lista.add(new SimboloMarck("//", "i"));
         lista.add(new SimboloMarck("\\*\\*", "b"));
+        lista.add(new SimboloMarck("###", "h3"));
+        lista.add(new SimboloMarck("##", "h2"));
+        lista.add(new SimboloMarck("#", "h1"));
         lista.add(new ListaMarck());
-        lista.add(new LinkSimplesMarck());
-        lista.add(new LinkMascaraMarck());
         lista.add(new TagAtributoMarck("image", "img"));
         lista.add(new NormalizarLinkMarck());
         lista.add(new ParagrafoMarck());

@@ -9,18 +9,18 @@
     <ui:composition template="/template/template.xhtml">
         <ui:define name="content">   
             <div class="col-sm-9">
-                <form jsf:id="set-up" jsf:prependId="false">  
+                <form jsf:id="set-up" jsf:prependId="false" accept-charset="utf-8">  
                     <h2 class="page-header text-center text-muted">Iniciar Arquivo</h2>
                     <div class="form-group col-xs-12">
                         <label for="titulo">Titulo do Capitulo</label>
-                        <input type="text" class="form-control" jsf:id="titulo" jsf:value="#{capitulo.titulo}"  placeholder="Titulo"/>
+                        <input type="text" class="form-control" jsf:id="titulo" jsf:value="#{livroController.capitulo.titulo}"  placeholder="Titulo"/>
                     </div>
                     <div class="form-group  col-xs-12">
                         <label for="conteudo">Conteudo do capitulo</label>
-                        <textarea class="form-control" jsf:id="conteudo" jsf:value="#{capitulo.conteudo}" placeholder="editora"></textarea>
+                        <textarea class="form-control" jsf:id="conteudo" jsf:value="#{livroController.capitulo.conteudo}" placeholder="editora"></textarea>
                     </div>
                     <div class="form-group  col-xs-12">
-                        <button type="submit" class="btn btn-info" jsf:id="proximo" jsf:action="#{livroController.addCapitulo(capitulo)}" >
+                        <button type="submit" class="btn btn-info" jsf:id="proximo" jsf:action="#{livroController.addCapitulo(livroController.capitulo)}" >
                             <i class="icon-next"></i> Continuar
                         </button>
                         <button type="submit" class="btn btn-info pull-right" jsf:id="finalizar" jsf:action="#{livroController.finalizarLivro()}" >

@@ -46,7 +46,6 @@ public class MarckupChainTest {
         assertEquals("<p><b>Ferrari</b></p>", edit.paraHTML("**Ferrari**"));
     }
 
-    @Test
     public void testeSeOEditorAchaPadraoParaComverterLinkEmTag() {
         String transformado = edit.paraHTML("http://www.google.com");
         assertEquals("<p><a href=\"http://www.google.com\">http://www.google.com</a></p>", transformado);

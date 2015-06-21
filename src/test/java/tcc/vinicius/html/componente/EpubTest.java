@@ -2,6 +2,7 @@ package tcc.vinicius.html.componente;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,9 +15,20 @@ public class EpubTest {
 
     @After
     public void depois() {
-        File file = new File("C:\\temp\\epub.epub");
-        if (file.exists()) {
-            file.delete();
+        List<File> files = new ArrayList<>();
+        files.add(new File("C:\\temp\\epub.epub"));
+        files.add(new File("C:\\temp\\epub.html"));
+        files.add(new File("C:\\temp\\nome.epub"));
+        files.add(new File("C:\\temp\\nome_1.html"));
+        files.add(new File("C:\\temp\\nome_2.html"));
+        files.add(new File("C:\\temp\\nome_titulo.html"));
+        files.add(new File("C:\\temp\\livro.epub"));
+        files.add(new File("C:\\temp\\livro_titulo.html"));
+        for (File file : files) {
+            if (file.exists()) {
+                file.delete();
+            }
+            
         }
     }
 

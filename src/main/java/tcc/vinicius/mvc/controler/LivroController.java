@@ -1,10 +1,12 @@
 package tcc.vinicius.mvc.controler;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import tcc.vinicius.html.componente.Epub;
 import tcc.vinicius.html.superlinguagem.MarckupChain;
 import tcc.vinicius.mvn.model.Capitulo;
 import tcc.vinicius.mvn.model.Livro;
@@ -14,12 +16,16 @@ import tcc.vinicius.mvn.model.Livro;
 public class LivroController implements Serializable {
 
     private final List<Capitulo> conteudo;
+    private Capitulo capitulo;
+    private Livro livro;
 
     public LivroController() {
         this.conteudo = new ArrayList<>();
+        this.livro = new Livro();
+        this.capitulo = new Capitulo();
     }
 
-    public String continuar(Livro livro) {
+    public String continuar() {
         if (livro == null) {
             return null;
         }
@@ -27,13 +33,14 @@ public class LivroController implements Serializable {
     }
 
     public String addCapitulo(Capitulo capitulo) {
-        if (capitulo != null) {
-            conteudo.add(capitulo);
-            return "editor.xhtml";
+        if (capitulo == null) {
+            return null;
         }
-        return null;
+        conteudo.add(capitulo);
+        this.capitulo = new Capitulo();
+        return "editor.xhtml";
     }
-    
+
     public List<Capitulo> tabelaDeConteudo() {
         return conteudo;
     }
@@ -44,7 +51,33 @@ public class LivroController implements Serializable {
             String paraHTML = marckupChain.paraHTML(texto.getConteudo());
             texto.setConteudo(paraHTML);
         }
+        Epub epub = new Epub(livro.getTitulo() + "_" + livro.getNomeAutor(), "/home/vinicius/Vinicius/Netbeans/TCCGeradorEpub/src/main/webapp/resources/downloads/");
+        epub.addAutor(livro.getNomeAutor(), livro.getSobrenomeAutor());
+        epub.addEditora(livro.getEditora());
+        epub.addTitulo(livro.getTitulo());
+        epub.addCapitulos(conteudo);
+        try {
+            epub.processarConteudo();
+        } catch (IOException ex) {
+            System.out.println("Erro");
+        }
         return "finalizado";
+    }
+    
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
+
+    public Capitulo getCapitulo() {
+        return capitulo;
+    }
+
+    public void setCapitulo(Capitulo capitulo) {
+        this.capitulo = capitulo;
     }
 
 }

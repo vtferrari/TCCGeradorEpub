@@ -45,7 +45,7 @@ a {
     position: absolute;
     right: 0;
     top: 0;
-    background-image:url('https://riscaefazdenovo.files.wordpress.com/2013/11/estantes-04_.jpg');
+    background-image:url('http://localhost:8084/GeradorEpub/resources/img/estantes-04_.jpg');
     background-size:cover;
     background-attachment:fixed;
 }

@@ -1,15 +1,22 @@
 package tcc.vinicius.html.componente;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import nl.siegmann.epublib.domain.Author;
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Metadata;
 import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.epub.EpubWriter;
-import nl.siegmann.epublib.service.MediatypeService;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlSerializer;
+
 import tcc.vinicius.mvn.model.Capitulo;
 
 public class Epub {
@@ -21,8 +28,10 @@ public class Epub {
     private final String nomeArquivo;
     private static final String PRE_HTML = "<html><header><title>#{Titulo}</title><header/><body>";
     private static final String POS_HTML = "</body></html>";
+    private final String local;
 
     public Epub(String nomeArquivo) {
+        this.local = "C:\\temp\\";
         this.book = new Book();
         this.metadata = book.getMetadata();
         this.epubWriter = new EpubWriter();
@@ -30,12 +39,28 @@ public class Epub {
         this.tabelaDeConteudo = new ArrayList<>();
     }
 
+    public Epub(String nomeArquivo, String local) {
+        this.local = local;
+        this.book = new Book();
+        try {
+            book.setCoverImage(new Resource(new FileInputStream("/home/vinicius/Vinicius/Netbeans/TCCGeradorEpub/cover_image.png"), "cover.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Epub.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.metadata = book.getMetadata();
+        this.epubWriter = new EpubWriter();
+        this.nomeArquivo = nomeArquivo;
+        this.tabelaDeConteudo = new ArrayList<>();
+    }
+
     public void processarConteudo() throws IOException {
+        
         for (Capitulo toc : tabelaDeConteudo) {
             String conteudoHTML = PRE_HTML.replace("#{Titulo}", toc.getTitulo()) + toc.getConteudo() + POS_HTML;
             this.criarConteudo(toc.getTitulo(), conteudoHTML);
         }
-        epubWriter.write(book, new FileOutputStream("C:\\temp\\" + nomeArquivo + ".epub"));
+        FileOutputStream fileOutputStream = new FileOutputStream(local + nomeArquivo + ".epub");
+        epubWriter.write(book, fileOutputStream);
     }
 
     public void addTitulo(String titulo) {
@@ -59,9 +84,8 @@ public class Epub {
     }
 
     public void criarConteudo(String titulo, String conteudo) throws IOException {
-        Resource resource = new Resource("id" + conteudo.hashCode(),
-                conteudo.getBytes(),"teste/"+ titulo + ".html", MediatypeService.XHTML);
-        book.getTableOfContents().addSection(resource, titulo);
+        File salvarArquivo = new ConteudoFisico(nomeArquivo + "_" + titulo, local).salvarArquivo(conteudo);
+        book.addSection(titulo, new Resource(new FileInputStream(salvarArquivo), nomeArquivo + "_" + titulo + ".html"));
     }
 
     public Book getEBook() {

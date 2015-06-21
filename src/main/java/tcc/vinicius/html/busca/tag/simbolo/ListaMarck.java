@@ -15,10 +15,11 @@ public class ListaMarck implements Marck {
     private String circundaListaComTagLi(List<String> lista) {
         listTag = "<ul>";
         for (String lis : lista) {
-            listTag += "<li>" + lis.replace("* ", "").trim() + "</li>";
+            listTag += "<li>" + lis.replaceAll("(.*\\n\\* )", "").replace("* ", "").trim() + "</li>";
         }
-        listTag += "</ul>";
-        return listTag;
+        listTag = listTag.replaceAll("\\n.*</li>$", "");
+        listTag += "</li></ul>";
+        return listTag.replace("</li></li>", "</li>");
     }
 
     private List<String> listaDeItens(String html) {

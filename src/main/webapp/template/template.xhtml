@@ -24,9 +24,9 @@
 
                     <!-- sidebar -->
                     <div class="column col-sm-3" id="sidebar">
-                        <a class="logo" href="#"><img src="http://2jp1nt2tjryb3c69dtpi1nkcrq.wpengine.netdna-cdn.com/wp-content/uploads/2012/08/epub.jpeg" class="img-responsive"/></a>
+                        <a class="logo" href="#"><img src="#{request.contextPath}/resources/img/epub.jpeg" class="img-responsive"/></a>
                         <ul class="nav">
-                            <li class="active"><a href="#featured">ePub</a>
+                            <li class="active"><a href="index.xhtml">ePub</a>
                             </li>
                             <li><a href="publicar.xhtml">Publicar</a>
                             </li>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <!-- script references -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="#{request.contextPath}/resources/js/jquery.min.js"></script>
         <script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
     </h:body>
 </html>
