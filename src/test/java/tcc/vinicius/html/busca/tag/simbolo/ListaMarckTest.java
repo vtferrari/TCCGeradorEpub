@@ -11,7 +11,7 @@ public class ListaMarckTest {
         assertEquals("<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>", transforma.converteParaHTML("* Item 1 * Item 2 * Item 3"));
     }
     @Test
-    public void testeSeConverterTagFalsaUParaViniciusTagHTMLU7() {
+    public void testeSeConverterTagFalsaUParaViniciusTagHTMLUComQuebraDeLinha() {
         ListaMarck transforma = new ListaMarck();
         assertEquals("conteudo\n<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>\nconteudo", transforma.converteParaHTML("conteudo\n* Item 1 * Item 2 * Item 3\nconteudo"));
     }
